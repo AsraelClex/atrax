@@ -15,9 +15,9 @@
             --bg: #0a0a0a;
             --bg-secondary: #111111;
             --text: #ffffff;
-            --text-secondary: #888888;
+            --text-secondary: #666666;
             --accent: #ff3333;
-            --border: #222222;
+            --border: #1a1a1a;
         }
         
         body {
@@ -39,246 +39,160 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
         
         .logo {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 32px;
-            letter-spacing: 8px;
+            font-size: 28px;
+            letter-spacing: 6px;
             color: var(--text);
             text-decoration: none;
         }
         
-        .nav-links {
+        .header-right {
             display: flex;
-            gap: 30px;
+            align-items: center;
+            gap: 20px;
         }
         
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--text);
+        .cart-icon {
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
         }
         
         /* Hero */
         .hero {
-            min-height: 80vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 120px 20px 80px;
+            padding: 100px 20px;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at center, rgba(255,51,51,0.1) 0%, transparent 70%);
-            pointer-events: none;
         }
         
         .hero h1 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(60px, 15vw, 150px);
-            letter-spacing: 20px;
-            line-height: 1;
-            animation: fadeInUp 1s ease;
+            font-size: clamp(80px, 20vw, 200px);
+            letter-spacing: 15px;
+            line-height: 0.9;
         }
         
-        .hero p {
-            font-size: 14px;
+        .hero-subtitle {
+            font-size: 12px;
             letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--text-secondary);
             margin-top: 20px;
-            animation: fadeInUp 1s ease 0.2s both;
         }
         
-        .hero .cta {
+        .hero-cta {
             margin-top: 50px;
-            animation: fadeInUp 1s ease 0.4s both;
+            display: flex;
+            gap: 20px;
         }
         
         .btn {
+            padding: 16px 40px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
             display: inline-block;
-            padding: 18px 50px;
+        }
+        
+        .btn-primary {
             background: var(--text);
             color: var(--bg);
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
             border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
         
-        .btn:hover {
+        .btn-primary:hover {
             background: var(--accent);
-            transform: translateY(-2px);
+            color: var(--text);
         }
         
-        /* Products */
-        .products-section {
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--text);
+            color: var(--text);
+        }
+        
+        .btn-outline:hover {
+            background: var(--text);
+            color: var(--bg);
+        }
+        
+        /* Collection */
+        .collection {
             padding: 80px 30px;
-        }
-        
-        .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 48px;
-            letter-spacing: 8px;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
             max-width: 1400px;
             margin: 0 auto;
         }
         
+        .collection-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 40px;
+        }
+        
+        .collection-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            letter-spacing: 4px;
+        }
+        
+        .collection-count {
+            font-size: 12px;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
         .product-card {
-            background: var(--bg-secondary);
-            border-radius: 0;
-            overflow: hidden;
             cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
+            transition: opacity 0.3s;
         }
         
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            opacity: 0.8;
         }
         
         .product-image {
             aspect-ratio: 3/4;
             width: 100%;
             object-fit: cover;
-            background: #1a1a1a;
-        }
-        
-        .product-info {
-            padding: 25px;
+            background: #111;
+            margin-bottom: 15px;
         }
         
         .product-name {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .product-price {
-            font-size: 16px;
-            font-weight: 300;
-            color: var(--accent);
-            margin-top: 8px;
-        }
-        
-        .product-card .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .product-card:hover .overlay {
-            opacity: 1;
-        }
-        
-        .overlay span {
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border: 1px solid var(--text);
-            padding: 15px 30px;
-        }
-        
-        /* Cart Button */
-        .cart-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--text);
-            color: var(--bg);
-            border: none;
-            padding: 15px 30px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            z-index: 50;
-            transition: all 0.3s;
-        }
-        
-        .cart-btn:hover {
-            background: var(--accent);
-            color: var(--text);
-        }
-        
-        .cart-count {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--text);
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            font-size: 10px;
-            line-height: 20px;
-            text-align: center;
-            margin-left: 8px;
-        }
-        
-        /* Admin Button */
-        .admin-btn {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: transparent;
-            border: 1px solid var(--border);
+            font-size: 13px;
             color: var(--text-secondary);
-            width: 50px;
-            height: 50px;
-            font-size: 18px;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 50;
+            margin-top: 5px;
         }
         
-        .admin-btn.visible { display: flex; }
-        
-        /* Modal */
+        /* Product Detail Modal */
         .modal {
             display: none;
             position: fixed;
@@ -286,7 +200,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.95);
+            background: rgba(0,0,0,0.98);
             z-index: 200;
             overflow-y: auto;
         }
@@ -294,37 +208,196 @@
         .modal.active { display: block; }
         
         .modal-content {
-            max-width: 500px;
+            max-width: 1000px;
             margin: 50px auto;
-            padding: 40px;
-            background: var(--bg-secondary);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding: 30px;
         }
         
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .modal-header h2 {
-            font-size: 18px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        
-        .modal-header button {
+        .modal-close {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
             background: none;
             border: none;
             color: var(--text);
-            font-size: 30px;
+            cursor: pointer;
+            z-index: 201;
+        }
+        
+        .detail-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            background: #111;
+        }
+        
+        .detail-info {
+            padding-top: 20px;
+        }
+        
+        .detail-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+        
+        .detail-price {
+            font-size: 20px;
+            font-weight: 300;
+            color: var(--accent);
+            margin-bottom: 30px;
+        }
+        
+        .detail-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .size-section {
+            margin-bottom: 30px;
+        }
+        
+        .size-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        
+        .size-options {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .size-btn {
+            width: 45px;
+            height: 45px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .size-btn:hover, .size-btn.selected {
+            border-color: var(--text);
+            background: var(--text);
+            color: var(--bg);
+        }
+        
+        .quantity-section {
+            margin-bottom: 30px;
+        }
+        
+        .quantity-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .qty-btn {
+            width: 35px;
+            height: 35px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 18px;
             cursor: pointer;
         }
         
-        /* Form */
+        .qty-value {
+            font-size: 16px;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--text);
+            color: var(--bg);
+            border: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        
+        .add-to-cart-btn:hover {
+            background: var(--accent);
+            color: var(--text);
+        }
+        
+        /* Cart Modal */
+        .cart-modal .modal-content {
+            max-width: 500px;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .cart-items {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .cart-item-info {
+            flex: 1;
+        }
+        
+        .cart-item-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .cart-item-size {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .cart-item-price {
+            color: var(--text-secondary);
+        }
+        
+        .cart-total {
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid var(--border);
+        }
+        
+        /* Checkout Modal */
+        .checkout-modal .modal-content {
+            max-width: 500px;
+            grid-template-columns: 1fr;
+        }
+        
         .form-group {
             margin-bottom: 20px;
         }
@@ -342,7 +415,7 @@
         .form-group textarea {
             width: 100%;
             padding: 15px;
-            background: var(--bg);
+            background: var(--bg-secondary);
             border: 1px solid var(--border);
             color: var(--text);
             font-size: 14px;
@@ -355,146 +428,56 @@
             border-color: var(--accent);
         }
         
-        /* Buttons */
-        .btn-block {
-            width: 100%;
-            padding: 18px;
-            background: var(--text);
-            color: var(--bg);
-            border: none;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
+        /* Success */
+        .success-modal .modal-content {
+            max-width: 400px;
+            grid-template-columns: 1fr;
+            text-align: center;
+            padding: 60px 30px;
+        }
+        
+        .success-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        
+        .success-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            letter-spacing: 3px;
             margin-bottom: 10px;
         }
         
-        .btn-block:hover {
-            background: var(--accent);
+        .success-msg {
+            color: var(--text-secondary);
+            font-size: 14px;
         }
         
-        .btn-outline {
+        /* Admin */
+        .admin-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
             background: transparent;
             border: 1px solid var(--border);
-            color: var(--text);
-        }
-        
-        /* Cart Items */
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .cart-item-name {
+            color: var(--text-secondary);
+            width: 40px;
+            height: 40px;
             font-size: 14px;
-            font-weight: 500;
-        }
-        
-        .cart-item-price {
-            color: var(--text-secondary);
-        }
-        
-        .cart-total {
-            font-size: 20px;
-            font-weight: 600;
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 20px;
-        }
-        
-        /* Orders */
-        .order-card {
-            background: var(--bg);
-            padding: 25px;
-            margin-bottom: 20px;
-        }
-        
-        .order-header {
-            display: flex;
-            justify-content: space-between;
+            display: none;
             align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .order-id {
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        
-        .order-status {
-            font-size: 10px;
-            padding: 5px 12px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        
-        .status-new { background: var(--accent); color: var(--text); }
-        .status-processing { background: #333; color: var(--text); }
-        .status-completed { background: var(--text); color: var(--bg); }
-        
-        .order-items {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-        }
-        
-        .order-customer {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-        
-        .order-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .order-actions button {
-            flex: 1;
-            padding: 12px;
-            font-size: 11px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: none;
+            justify-content: center;
             cursor: pointer;
+            z-index: 50;
         }
         
-        /* Product List */
-        .product-list-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
-            background: var(--bg);
-            margin-bottom: 10px;
+        .admin-btn.visible { display: flex; }
+        
+        .admin-modal .modal-content {
+            max-width: 600px;
+            grid-template-columns: 1fr;
         }
         
-        .product-list-item img {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-        }
-        
-        .product-list-item-info {
-            flex: 1;
-        }
-        
-        .product-list-item-name {
-            font-size: 14px;
-            font-weight: 500;
-        }
-        
-        .product-list-item-price {
-            color: var(--accent);
-            font-size: 13px;
-        }
-        
-        /* Tabs */
         .tabs {
             display: flex;
             gap: 10px;
@@ -504,7 +487,7 @@
         .tab {
             flex: 1;
             padding: 15px;
-            background: var(--bg);
+            background: var(--bg-secondary);
             border: none;
             color: var(--text-secondary);
             font-size: 11px;
@@ -518,59 +501,82 @@
             color: var(--bg);
         }
         
-        /* Success */
-        .success {
-            text-align: center;
-            padding: 80px 20px;
-        }
-        
-        .success-icon {
-            font-size: 60px;
-            margin-bottom: 30px;
-        }
-        
-        .success-title {
-            font-size: 24px;
-            font-weight: 500;
-            letter-spacing: 4px;
-            text-transform: uppercase;
+        .order-card {
+            background: var(--bg-secondary);
+            padding: 20px;
             margin-bottom: 15px;
         }
         
-        .success-msg {
-            color: var(--text-secondary);
-            font-size: 14px;
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
         }
         
-        /* Empty */
-        .empty {
+        .order-id {
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .order-status {
+            font-size: 10px;
+            padding: 4px 10px;
+        }
+        
+        .status-new { background: var(--accent); color: var(--text); }
+        .status-processing { background: #333; color: var(--text); }
+        .status-completed { background: var(--text); color: var(--bg); }
+        
+        .order-items {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+        
+        .order-customer {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 60px 30px;
+            border-top: 1px solid var(--border);
             text-align: center;
-            padding: 60px 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        
+        .footer-email {
             color: var(--text-secondary);
             font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .header { padding: 15px 20px; }
-            .nav-links { display: none; }
-            .hero h1 { letter-spacing: 10px; }
-            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .products-section { padding: 40px 15px; }
+            .modal-content {
+                grid-template-columns: 1fr !important;
+                gap: 30px;
+            }
+            .collection {
+                padding: 40px 15px;
+            }
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -578,53 +584,90 @@
     <!-- HEADER -->
     <header class="header">
         <a href="#" class="logo">ATRAX</a>
-        <nav class="nav-links">
-            <a href="#shop">Shop</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <div class="header-right">
+            <span class="cart-icon" onclick="openCart()">Cart (<span id="cartCount">0</span>)</span>
+        </div>
     </header>
     
     <!-- HERO -->
     <section class="hero">
         <h1>ATRAX</h1>
-        <p>Premium Streetwear Collection</p>
-        <div class="cta">
-            <a href="#shop" class="btn">Explore Now</a>
+        <p class="hero-subtitle">Premium Streetwear Collection</p>
+        <div class="hero-cta">
+            <a href="#collection" class="btn btn-primary">Shop Now</a>
+            <a href="#about" class="btn btn-outline">About</a>
         </div>
     </section>
     
-    <!-- PRODUCTS -->
-    <section class="products-section" id="shop">
-        <h2 class="section-title">Latest Drop</h2>
+    <!-- COLLECTION -->
+    <section class="collection" id="collection">
+        <div class="collection-header">
+            <h2 class="collection-title">Collection 01 / 01</h2>
+            <span class="collection-count"><span id="productCount">0</span> Products</span>
+        </div>
         <div class="products-grid" id="products"></div>
     </section>
     
-    <!-- BUTTONS -->
+    <!-- FOOTER -->
+    <footer class="footer" id="about">
+        <div class="footer-links">
+            <a href="#">Terms of Service</a>
+            <a href="#">Shipping Policy</a>
+            <a href="#">Size Guide</a>
+        </div>
+        <p class="footer-email">hello@atrax.com</p>
+    </footer>
+    
+    <!-- ADMIN BUTTON -->
     <button class="admin-btn" onclick="openAdmin()">⚙</button>
-    <button class="cart-btn" onclick="openCart()">Cart <span class="cart-count" id="cartCount">0</span></button>
+    
+    <!-- PRODUCT DETAIL MODAL -->
+    <div class="modal" id="productModal">
+        <button class="modal-close" onclick="closeProduct()">×</button>
+        <div class="modal-content">
+            <div>
+                <img src="" id="detailImage" class="detail-image">
+            </div>
+            <div class="detail-info">
+                <h2 id="detailName" class="detail-name"></h2>
+                <p id="detailPrice" class="detail-price"></p>
+                <p id="detailDesc" class="detail-desc"></p>
+                
+                <div class="size-section">
+                    <p class="size-label">Size</p>
+                    <div class="size-options" id="sizeOptions"></div>
+                </div>
+                
+                <div class="quantity-section">
+                    <p class="quantity-label">Quantity</p>
+                    <div class="quantity-controls">
+                        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+                        <span class="qty-value" id="qtyValue">1</span>
+                        <button class="qty-btn" onclick="changeQty(1)">+</button>
+                    </div>
+                </div>
+                
+                <button class="add-to-cart-btn" onclick="addToCartFromDetail()">Add to Cart</button>
+            </div>
+        </div>
+    </div>
     
     <!-- CART MODAL -->
-    <div class="modal" id="cartModal">
+    <div class="modal cart-modal" id="cartModal">
+        <button class="modal-close" onclick="closeCart()">×</button>
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>Your Cart</h2>
-                <button onclick="closeCart()">×</button>
-            </div>
-            <div id="cartItems"></div>
+            <h2 style="font-family:'Bebas Neue';font-size:28px;letter-spacing:3px;margin-bottom:20px">Your Cart</h2>
+            <div class="cart-items" id="cartItems"></div>
             <div class="cart-total" id="cartTotal">€0.00</div>
-            <button class="btn-block" onclick="openCheckout()">Checkout</button>
-            <button class="btn-block btn-outline" onclick="closeCart()">Continue Shopping</button>
+            <button class="btn btn-primary" onclick="openCheckout()">Checkout</button>
         </div>
     </div>
     
     <!-- CHECKOUT MODAL -->
-    <div class="modal" id="checkoutModal">
+    <div class="modal checkout-modal" id="checkoutModal">
+        <button class="modal-close" onclick="closeCheckout()">×</button>
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>Checkout</h2>
-                <button onclick="closeCheckout()">×</button>
-            </div>
+            <h2 style="font-family:'Bebas Neue';font-size:28px;letter-spacing:3px;margin-bottom:20px">Checkout</h2>
             <div class="form-group">
                 <label>Full Name</label>
                 <input type="text" id="custName" placeholder="Your name">
@@ -641,28 +684,25 @@
                 <label>Shipping Address</label>
                 <textarea id="custAddress" rows="2" placeholder="Your address"></textarea>
             </div>
-            <button class="btn-block" onclick="submitOrder()">Place Order</button>
-            <button class="btn-block btn-outline" onclick="closeCheckout()">Back</button>
+            <button class="btn btn-primary" onclick="submitOrder()">Place Order</button>
         </div>
     </div>
     
     <!-- SUCCESS MODAL -->
-    <div class="modal" id="successModal">
-        <div class="success">
+    <div class="modal success-modal" id="successModal">
+        <div class="modal-content">
             <div class="success-icon">✓</div>
-            <div class="success-title">Order Confirmed</div>
-            <div class="success-msg">Thank you for your order.<br>We'll contact you shortly.</div>
-            <button class="btn" onclick="closeSuccess()" style="margin-top:40px">Continue</button>
+            <h2 class="success-title">Order Confirmed</h2>
+            <p class="success-msg">Thank you for your order.<br>We'll contact you shortly.</p>
+            <button class="btn btn-primary" onclick="closeSuccess()" style="margin-top:30px">Continue</button>
         </div>
     </div>
     
     <!-- ADMIN MODAL -->
-    <div class="modal" id="adminModal">
+    <div class="modal admin-modal" id="adminModal">
+        <button class="modal-close" onclick="closeAdmin()">×</button>
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>Admin Panel</h2>
-                <button onclick="closeAdmin()">×</button>
-            </div>
+            <h2 style="font-family:'Bebas Neue';font-size:28px;letter-spacing:3px;margin-bottom:20px">Admin Panel</h2>
             <div class="tabs">
                 <button class="tab active" onclick="switchTab('orders')" id="tabOrders">Orders</button>
                 <button class="tab" onclick="switchTab('products')" id="tabProducts">Products</button>
@@ -687,13 +727,11 @@
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea id="prodDesc" rows="2" placeholder="Description"></textarea>
+                    <textarea id="prodDesc" rows="3" placeholder="Description"></textarea>
                 </div>
-                <button class="btn-block" onclick="saveProduct()">Save Product</button>
+                <button class="btn btn-primary" onclick="saveProduct()">Save Product</button>
                 <div id="productListAdmin" style="margin-top:30px"></div>
             </div>
-            
-            <button class="btn-block btn-outline" onclick="closeAdmin()" style="margin-top:20px">Close</button>
         </div>
     </div>
     
@@ -707,57 +745,94 @@
             document.querySelector('.admin-btn').classList.add('visible');
         }
         
-        const shopId = 'atrax_v2';
+        const shopId = 'atrax_v3';
         const PRODUCTS_KEY = 'shop_products_' + shopId;
         const ORDERS_KEY = 'shop_orders_' + shopId;
         
         let products = JSON.parse(localStorage.getItem(PRODUCTS_KEY) || '[]');
         let orders = JSON.parse(localStorage.getItem(ORDERS_KEY) || '[]');
         let cart = [];
+        let currentProduct = null;
+        let selectedSize = 'M';
+        let quantity = 1;
         let editingIdx = null;
         
-        // Premium products
+        const sizes = ['XS', 'S', 'M', 'L', 'XL'];
+        
+        // Products
         if (products.length === 0) {
             products = [
-                { name: 'Oversized Tee', price: '55.00', desc: 'Premium cotton, oversized fit', img: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600' },
-                { name: 'Graphic Hoodie', price: '89.00', desc: 'Heavyweight cotton, front print', img: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600' },
-                { name: 'Cargo Pants', price: '95.00', desc: 'Multi-pocket tactical design', img: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600' },
-                { name: 'Crossbody Bag', price: '45.00', desc: 'Synthetic leather, adjustable strap', img: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600' },
-                { name: 'Snapback Cap', price: '35.00', desc: 'Adjustable, embroidered logo', img: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600' },
-                { name: 'Tactical Vest', price: '129.00', desc: 'Multi-pocket, adjustable fit', img: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600' },
-                { name: 'Windbreaker', price: '75.00', desc: 'Lightweight, water-resistant', img: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600' },
-                { name: 'Chain Necklace', price: '25.00', desc: 'Stainless steel, 50cm', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600' }
+                { name: 'Oversized Tee', price: '55.00', desc: 'Premium heavyweight cotton, oversized fit. Features dropped shoulders and elongated sleeves. Perfect for layering.', img: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800' },
+                { name: 'Graphic Hoodie', price: '89.00', desc: 'Heavyweight cotton fleece, front and back screen print. Kangaroo pocket and adjustable hood.', img: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800' },
+                { name: 'Cargo Pants', price: '95.00', desc: 'Tactical design with multiple pockets. Adjustable cuffs and elastic waistband for comfortable fit.', img: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800' },
+                { name: 'Crossbody Bag', price: '45.00', desc: 'Synthetic leather construction with adjustable strap. Multiple compartments for organization.', img: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800' },
+                { name: 'Snapback Cap', price: '35.00', desc: 'Structured cotton twill with embroidered logo. Adjustable snapback closure.', img: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800' },
+                { name: 'Tactical Vest', price: '129.00', desc: 'Multi-pocket tactical vest with adjustable straps. Durable nylon construction.', img: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800' }
             ];
             localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products));
         }
         
         function render() {
             const c = document.getElementById('products');
+            document.getElementById('productCount').innerText = products.length;
             c.innerHTML = products.map((p, i) => `
-                <div class="product-card" onclick="addToCart(${i})">
-                    <img src="${p.img}" class="product-image" onerror="this.src='https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600'">
-                    <div class="product-info">
-                        <div class="product-name">${p.name}</div>
-                        <div class="product-price">€${p.price}</div>
-                    </div>
-                    <div class="overlay">
-                        <span>Add to Cart</span>
-                    </div>
+                <div class="product-card" onclick="openProduct(${i})">
+                    <img src="${p.img}" class="product-image" onerror="this.src='https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800'">
+                    <p class="product-name">${p.name}</p>
+                    <p class="product-price">€${p.price}</p>
                 </div>
             `).join('');
             renderProductListAdmin();
         }
         
-        function addToCart(i) {
-            cart.push(products[i]);
+        function openProduct(i) {
+            currentProduct = { ...products[i], index: i };
+            selectedSize = 'M';
+            quantity = 1;
+            
+            document.getElementById('detailImage').src = products[i].img;
+            document.getElementById('detailName').innerText = products[i].name;
+            document.getElementById('detailPrice').innerText = '€' + products[i].price;
+            document.getElementById('detailDesc').innerText = products[i].desc;
+            
+            // Render sizes
+            document.getElementById('sizeOptions').innerHTML = sizes.map(s => 
+                `<button class="size-btn ${s === selectedSize ? 'selected' : ''}" onclick="selectSize('${s}')">${s}</button>`
+            ).join('');
+            
+            document.getElementById('qtyValue').innerText = quantity;
+            document.getElementById('productModal').classList.add('active');
+        }
+        
+        function closeProduct() {
+            document.getElementById('productModal').classList.remove('active');
+        }
+        
+        function selectSize(size) {
+            selectedSize = size;
+            document.getElementById('sizeOptions').innerHTML = sizes.map(s => 
+                `<button class="size-btn ${s === selectedSize ? 'selected' : ''}" onclick="selectSize('${s}')">${s}</button>`
+            ).join('');
+        }
+        
+        function changeQty(delta) {
+            quantity = Math.max(1, quantity + delta);
+            document.getElementById('qtyValue').innerText = quantity;
+        }
+        
+        function addToCartFromDetail() {
+            for (let i = 0; i < quantity; i++) {
+                cart.push({ ...currentProduct, size: selectedSize });
+            }
             document.getElementById('cartCount').innerText = cart.length;
-            tg.HapticFeedback.notificationOccurred('success');
+            closeProduct();
+            tg.showAlert('Added to cart!');
         }
         
         function openCart() {
             if (!cart.length) return tg.showAlert('Your cart is empty');
-            document.getElementById('cartModal').classList.add('active');
             renderCart();
+            document.getElementById('cartModal').classList.add('active');
         }
         
         function closeCart() {
@@ -768,8 +843,11 @@
             const container = document.getElementById('cartItems');
             container.innerHTML = cart.map((p, i) => `
                 <div class="cart-item">
-                    <div class="cart-item-name">${p.name}</div>
-                    <div class="cart-item-price">€${p.price}</div>
+                    <div class="cart-item-info">
+                        <p class="cart-item-name">${p.name}</p>
+                        <p class="cart-item-size">Size: ${p.size}</p>
+                    </div>
+                    <p class="cart-item-price">€${p.price}</p>
                 </div>
             `).join('');
             const total = cart.reduce((s, p) => s + parseFloat(p.price), 0);
@@ -811,7 +889,9 @@
             orders.unshift(order);
             localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
             
-            const orderMsg = `🛒 NUOVO ORDINE ATRAX!\n\nID: ${orderId}\nCliente: ${name}\nEmail: ${email}\nTel: ${phone}\n\nPRODOTTI:\n` + cart.map(p => `• ${p.name} - €${p.price}`).join('\n') + `\n\nTOTALE: €${total.toFixed(2)}`;
+            const orderMsg = `🛒 NUOVO ORDINE ATRAX!\n\nID: ${orderId}\nCliente: ${name}\nEmail: ${email}\n\nPRODOTTI:\n` + 
+                cart.map(p => `• ${p.name} (${p.size}) - €${p.price}`).join('\n') + 
+                `\n\nTOTALE: €${total.toFixed(2)}`;
             
             try { tg.sendData(orderMsg); } catch(e) {}
             
@@ -830,6 +910,7 @@
             document.getElementById('successModal').classList.remove('active');
         }
         
+        // Admin
         function openAdmin() {
             document.getElementById('adminModal').classList.add('active');
             renderOrders();
@@ -849,7 +930,7 @@
         function renderOrders() {
             const container = document.getElementById('ordersList');
             if (!orders.length) {
-                container.innerHTML = '<div class="empty">No orders yet</div>';
+                container.innerHTML = '<p style="text-align:center;color:#666;padding:40px">No orders yet</p>';
                 return;
             }
             
@@ -863,14 +944,14 @@
                             <span class="order-id">${o.id}</span>
                             <span class="order-status ${statusClass}">${statusText}</span>
                         </div>
-                        <div class="order-items">${o.products.map(p => p.name).join(', ')}</div>
+                        <div class="order-items">${o.products.map(p => p.name + ' (' + p.size + ')').join(', ')}</div>
                         <div class="order-customer">
                             ${o.customer.name} • ${o.customer.phone}<br>
                             ${o.customer.address}
                         </div>
-                        <div class="order-actions">
-                            <button style="background:#333;color:#fff;border:none;padding:12px;cursor:pointer" onclick="changeStatus(${i})">Change Status</button>
-                            <button style="background:#ff3333;color:#fff;border:none;padding:12px;cursor:pointer" onclick="deleteOrder(${i})">Delete</button>
+                        <div style="display:flex;gap:10px;margin-top:15px">
+                            <button style="background:#333;color:#fff;border:none;padding:10px;cursor:pointer;font-size:11px" onclick="changeStatus(${i})">Change Status</button>
+                            <button style="background:#ff3333;color:#fff;border:none;padding:10px;cursor:pointer;font-size:11px" onclick="deleteOrder(${i})">Delete</button>
                         </div>
                     </div>
                 `;
@@ -897,7 +978,7 @@
             const name = document.getElementById('prodName').value.trim();
             const price = document.getElementById('prodPrice').value.trim();
             const desc = document.getElementById('prodDesc').value.trim();
-            const img = document.getElementById('prodImg').value.trim() || 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600';
+            const img = document.getElementById('prodImg').value.trim() || 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800';
             
             if (!name || !price) return tg.showAlert('Name and price required');
             
@@ -919,14 +1000,14 @@
         
         function renderProductListAdmin() {
             document.getElementById('productListAdmin').innerHTML = products.map((p, i) => `
-                <div class="product-list-item">
-                    <img src="${p.img}" onerror="this.src='https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100'">
-                    <div class="product-list-item-info">
-                        <div class="product-list-item-name">${p.name}</div>
-                        <div class="product-list-item-price">€${p.price}</div>
+                <div style="display:flex;align-items:center;gap:15px;padding:15px;background:#111;margin-bottom:10px">
+                    <img src="${p.img}" style="width:50px;height:50px;object-fit:cover">
+                    <div style="flex:1">
+                        <p style="font-size:14px;font-weight:500">${p.name}</p>
+                        <p style="font-size:12px;color:#888">€${p.price}</p>
                     </div>
-                    <button style="background:#333;color:#fff;padding:10px;border:none;cursor:pointer" onclick="editProduct(${i})">Edit</button>
-                    <button style="background:#ff3333;color:#fff;padding:10px;border:none;cursor:pointer" onclick="deleteProduct(${i})">X</button>
+                    <button style="background:#333;color:#fff;padding:8px;border:none;cursor:pointer" onclick="editProduct(${i})">Edit</button>
+                    <button style="background:#ff3333;color:#fff;padding:8px;border:none;cursor:pointer" onclick="deleteProduct(${i})">X</button>
                 </div>
             `).join('');
         }
