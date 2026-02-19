@@ -42,8 +42,9 @@
         .cart-btn { position: fixed; bottom: 20px; right: 20px; background: linear-gradient(135deg, #ff6b35, #f7931e); color: #fff; border: none; padding: 15px 25px; border-radius: 50px; font-weight: 700; font-size: 14px; box-shadow: 0 4px 25px rgba(255,107,53,0.5); display: flex; align-items: center; gap: 8px; }
         .cart-badge { background: #fff; color: #ff6b35; border-radius: 50%; width: 22px; height: 22px; font-size: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; }
         
-        /* Admin Button */
-        .admin-btn { position: fixed; bottom: 20px; left: 20px; background: #1a1a1a; border: 2px solid #333; width: 50px; height: 50px; border-radius: 50%; font-size: 18px; display: flex; align-items: center; justify-content: center; }
+        /* Admin Button - visible only with ?admin=1 */
+        .admin-btn { position: fixed; bottom: 20px; left: 20px; background: #1a1a1a; border: 2px solid #333; width: 50px; height: 50px; border-radius: 50%; font-size: 18px; display: none; align-items: center; justify-content: center; }
+        .admin-btn.visible { display: flex; }
         
         /* Modal */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0a0a0a; z-index: 200; overflow-y: auto; }
@@ -256,6 +257,12 @@
     <script>
         const tg = Telegram.WebApp;
         tg.expand();
+        
+        // Show admin button only with ?admin=1
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('admin') === '1') {
+            document.querySelector('.admin-btn').classList.add('visible');
+        }
         
         const shopId = 'pizzaexpress';
         const PRODUCTS_KEY = 'shop_products_' + shopId;
